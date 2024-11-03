@@ -1,37 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Age calculator app</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+    <meta charset="UTF-8">
+    <script src="javascript/script.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 </head>
-<body>
+<body class="bg-green-100 h-screen flex items-center justify-center font-sans">
+    <div class="bg-white rounded-3xl p-12 max-w-2xl w-full shadow-lg relative">
+        <!-- Date Input Section -->
+        <form id="ageCalculator" class="grid grid-cols-3 gap-8 mb-16">
+            <div>
+                <label class="block text-gray-500 text-sm mb-2 uppercase tracking-wide">Day</label>
+                <input type="number" id="day" class="w-full p-3 text-3xl font-bold border rounded-lg focus:border-purple-600 focus:outline-none" placeholder="DD">
+                <span class="text-red-500 text-sm hidden" id="dayError"></span>
+            </div>
+            <div>
+                <label class="block text-gray-500 text-sm mb-2 uppercase tracking-wide">Month</label>
+                <input type="number" id="month" class="w-full p-3 text-3xl font-bold border rounded-lg focus:border-purple-600 focus:outline-none" placeholder="MM">
+                <span class="text-red-500 text-sm hidden" id="monthError"></span>
+            </div>
+            <div>
+                <label class="block text-gray-500 text-sm mb-2 uppercase tracking-wide">Year</label>
+                <input type="number" id="year" class="w-full p-3 text-3xl font-bold border rounded-lg focus:border-purple-600 focus:outline-none" placeholder="YYYY">
+                <span class="text-red-500 text-sm hidden" id="yearError"></span>
+            </div>
+        </form>
 
-  Day
-  DD
+        <!-- Results Section -->
+        <div class="space-y-2">
+            <div class="flex items-center">
+                <span class="text-7xl font-bold text-purple-600" id="years">--</span>
+                <span class="text-7xl font-bold text-black ml-2">years</span>
+            </div>
+            <div class="flex items-center">
+                <span class="text-7xl font-bold text-purple-600" id="months">--</span>
+                <span class="text-7xl font-bold text-black ml-2">months</span>
+            </div>
+            <div class="flex items-center">
+                <span class="text-7xl font-bold text-purple-600" id="days">--</span>
+                <span class="text-7xl font-bold text-black ml-2">days</span>
+            </div>
+        </div>
 
-  Month
-  MM
+        <!-- Purple Circle Icon -->
+        <button onclick="calculateAge()" class="absolute top-8 right-8 w-16 h-16 bg-purple-600 hover:bg-purple-700 rounded-full flex items-center justify-center transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12l5 5L20 7"></path>
+            </svg>
+        </button>
 
-  Year
-  YYYY
+        <!-- Bottom Right Curve -->
+        <div class="absolute bottom-0 right-0 w-32 h-32 bg-gray-100 rounded-tl-[100%]"></div>
+    </div>
 
-  -- years
-  -- months
-  -- days
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
 </body>
 </html>
